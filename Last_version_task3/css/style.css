@@ -14,9 +14,10 @@ body {
 
 }
 
-.content-container {
+
+.content-container-1 {
     max-width: 1300px;
-    padding-left: 70px;
+    margin: 0 auto;
 }
 
 .mg-y {
@@ -30,7 +31,6 @@ body {
     justify-content: space-between;
     padding: 44px 0;
 }
-
 
 .menu {
     list-style: none;
@@ -47,10 +47,32 @@ body {
 
 .menu-icon {
     display: none;
-    /* Hide the icon by default */
     cursor: pointer;
 }
 
+/* Style the hidden menu */
+.menu.active {
+    display: block;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background-color: #fff;
+    width: 100%;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+/* Style each menu item in the hidden menu */
+.menu.active li {
+    padding: 15px;
+    text-align: center;
+}
+
+/* Style the search icon in the hidden menu */
+.menu.active i.fa-search {
+    display: block;
+    text-align: center;
+}
 /*===================================  Orange Progress Bar Section =======================================*/
 /*The whole container*/
 .progress_bar .pro-bar {
@@ -86,70 +108,92 @@ body {
     background-color: inherit;
     border-radius: 50%;
     position: absolute;
-    left: 0px;
-    top: -5px;
+    left:-5px;
+    top: -7px;
+
 }
 
-/*===================================  Gradient Background Section =======================================*/
-
-
+    
 .bg {
-    /* border: 8px solid green; */
     max-width: 1300px;
     height: 60vh;
     position: relative;
     margin: 50px 0;
-    /* padding-right: 110px; */
 
 
 }
 
 
-.gradient_bg {
-    width: calc(100% - 10%);
-    background-color: rgb(0, 0, 38);
-    background-image: linear-gradient(rgb(0, 0, 38), rgb(0, 0, 38), OrangeRed);
-    /* border: 3px solid purple; */
-    height: 100%;
-    position: absolute;
-    right: 10%;
-    border-radius: 15px;
+
+.slider {
+    margin-bottom: 5rem;
+    display: flex;
+    gap: 30px;
+    position: relative;
 }
 
+.text {
+    width: 50vw;
+}
 
-.bleed-header {
+.text-wrapper {
+    margin-left: calc(50vw - 700px);
+    margin-top: 21%;
+}
+
+.img-container {
+    width: calc(50vw - 30px);
+}
+
+.img-container img{
     width: 100%;
-    height: 50%;
-    overflow: hidden;
-    position: absolute;
-    /* border: 1px solid red; */
-    top: 30%;
+    max-height: 420px;
+    margin-top: 19%;
 }
+
+
+
+.slider::after {
+    content: "";
+  position: absolute;
+  padding-bottom: 80px;
+  top: -40px;
+  margin-bottom: 5rem;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  right: calc(50vw - 650px);
+  background-color: rgb(0, 0, 38);
+  background-image: linear-gradient(rgb(0, 0, 38), rgb(0, 0, 38), OrangeRed);
+  margin-top: 5%;
+  border-radius: 15px;
+}
+
+
+
+
+.bg::after {
+    content: "";
+    background: red;
+    position: absolute;
+    top: -20px;
+    padding-bottom: 40px;
+}
+
+
+
 
 .txt-header {
-    float: left;
     width: 50%;
-    /* border: 1px solid green; */
-    padding: 20px 0 0 60px;
-
+   
 }
 
-.bleed-img {
-    float: right;
-    width: 50%;
-    /* border: 1px solid blue; */
-}
-
-.bleed-img img {
-    width: 50%;
-    height: 300px;
-    border-radius: 5px;
-}
 
 .Header-title {
     width: 100%;
     font-weight: 500;
-    font-size: 45px;
+    font-size: 55px;
     color: #fff;
 }
 
@@ -157,8 +201,6 @@ body {
 .Header-content {
 
     color: #fff;
-    padding-left: 20px;
-    padding-right: 20px;
     margin-top: 20px;
 }
 
@@ -166,7 +208,7 @@ body {
 .Header-content p {
     font-weight: 400;
     font-size: 20px;
-    padding-bottom: 20px;
+    
 }
 
 
@@ -278,8 +320,7 @@ body {
 
 .second-bleed-img img {
     width: 100%;
-    /* position: absolute; */
-    left: 0;
+    max-height: 420px;  
     margin-top: 70px;
     border-radius: 7px;
 
@@ -287,7 +328,7 @@ body {
 
 #X5 {
 
-    width: 100%;
+    max-width: 50vw;
     background-color: transparent;
     display: flex;
     flex-direction: column;
@@ -385,7 +426,7 @@ body {
 
 
 .Group {
-    width: 100%;
+    width: calc(50vw + 650px);
     background-color: rgba(220, 220, 220, 0.3);
     height: 300px;
     display: flex;
@@ -394,6 +435,7 @@ body {
     font-family: 'Times New Roman', Times, serif;
     margin-top: 20%;
     position: relative;
+    margin-left: auto;
 }
 
 .Group-txt {
@@ -620,7 +662,6 @@ body {
         display: none;
     }
 
-
     .menu-icon {
         display: block;
     }
@@ -637,17 +678,17 @@ body {
         box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
         z-index: 1;
 
-        /* Style each menu item in the hidden menu */
-        .menu.active li {
-            padding: 15px;
-            text-align: center;
-        }
+        
+    }
 
-        /* Style the search icon in the hidden menu */
-        .menu.active i.fa-search {
-            display: block;
-            text-align: center;
-        }
+    .menu.active li {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .menu.active i.fa-search {
+        display: block;
+        text-align: center;
     }
 
     .menu-icon i {
